@@ -1,0 +1,65 @@
+﻿@page
+@model Sneakers_store_web.Pages.Admin.Categories.IndexModel
+@{
+    ViewData["Title"] = "Categories";
+}
+
+<div class="container-fluid">
+
+    <partial name="_Nav" />
+
+    <section name="main">
+        <div class="container">
+
+            <div class="row pt-4">
+
+                <div class="col-6">
+                    <h2 class="clrf"><strong>Category List</strong></h2>
+                </div>
+
+                <div class="col-6 text-end">
+                    <a asp-page="Create" class="btn clr text-light">
+                        <i class="bi bi-plus-square">&nbsp; Create New Shoe Type</i>
+                    </a>
+                </div>
+            </div>
+            <br /><br />
+
+            <table class="table table-bordered tablecontent">
+
+                <thead class="clr text-light">
+                    <tr>
+                        <th scope="col">Category Name</th>                        
+                        <th scope="col">Display Order</th>                        
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var obj in Model.Categories)
+                    {
+                        <tr>
+                            <td width="50%">@obj.Name</td>
+                            <td width="25%">@obj.DisplayOrder</td>
+                            <td width="25%">
+                                <div class="btn-group w-75" role="group">
+                                    <a asp-page="Edit" asp-route-id="@obj.Id" class="btn text-light clr">
+                                        <i class="bi bi-pencil-square">&nbsp;Edit</i>
+                                    </a>&nbsp;
+                                    <a asp-page="Delete" asp-route-id="@obj.Id" class="btn btn-danger">
+                                        <i class="bi bi-trash">&nbsp;Delete</i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+
+        </div>
+    </section>
+
+
+</div>
+
+

@@ -1,0 +1,294 @@
+﻿@page
+@model Sneakers_store_web.Pages.Customer.Home.IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="container-fluid">
+
+    <section id="home">
+        <div class="row" style="height:100vh;">
+            <div class="col-md-4 none clr2"></div>
+            <div class="col-md-8 col-sm-12 clr"></div>
+        </div>
+
+
+        <div class="row col-md-11 justify-content-end" id="home-Z">
+
+            <div class="col-md-6 col-sm-9">
+                <div class="card border-0 clr">
+                    <img src="~/images/bestseller1.jpg" style="width:98%;" id="homeImage" class="imagehover" alt="slide" />
+                </div>
+
+            </div>
+            <div class="col-md-5 col-sm-10">
+                <div class="row text-light">
+                    <h6>Sneakers Store Sale!</h6>
+                    <h1 style="font-weight:bolder;font-family: Calibri, sans-serif;" class="hh1">
+                        New sports collection already on sale
+                    </h1>
+                </div>
+
+                <a type="submit" class="btn btn-light clrf" style="border-radius:15px;" asp-area="" asp-page="../Shopping/Index">
+                    <b>Start Shopping</b>
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="BestSallers">
+        <div class="container d-flex flex-column justify-content-center" style="height:80vh;">
+
+            <div class="row mb-5">
+                <div class="row">
+                    <center>
+                        <h3>BEST SELLERS</h3>
+                    </center>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class=col-md-4>
+                    <div class="card border-0">
+                        <img src="~/images/bestseller1.jpg" class="imagehover" />
+                        <center>
+                            <div class="card-body m-0">
+                                <h5 class="m-0"><b>BROWN GLASSES</b></h5>
+                                <p class="m-0">Casual sneakers</p>
+
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+
+                            </div>
+                        </center>
+                    </div>
+                </div>
+
+                <div class=col-md-4>
+                    <div class="card border-0">
+                        <img src="~/images/bestseller2.jpg" class="imagehover" />
+                        <center>
+                            <div class="card-body m-0">
+                                <h5 class="m-0"><b>BROWN GLASSES</b></h5>
+                                <p class="m-0">Casual sneakers</p>
+
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-half text-warning"></i>
+
+                            </div>
+                        </center>
+                    </div>
+                </div>
+
+                <div class=col-md-4>
+                    <div class="card border-0">
+                        <img src="~/images/bestseller3.jpg" class="imagehover" />
+                        <center>
+                            <div class="card-body m-0">
+                                <h5 class="m-0"><b>BROWN GLASSES</b></h5>
+                                <p class="m-0">Casual sneakers</p>
+
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star text-warning"></i>
+
+                            </div>
+                        </center>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="Size_Chart">
+        <div class="container d-flex flex-column justify-content-center" style="height:95vh;">
+
+            <div class="row">
+                <div class="col">
+                    <center>
+                        <h3>SIZE CHART</h3>
+                    </center>
+                </div>
+            </div>
+
+            <div class="row">
+                <table class="table table-striped">
+
+                    <thead>
+                        <tr>
+                            <th scope="col">cm</th>
+                            <th scope="col">23,5</th>
+                            <th scope="col">24,4</th>
+                            <th scope="col">25,4</th>
+                            <th scope="col">25</th>
+                            <th scope="col">27</th>
+                            <th scope="col">27,9</th>
+                            <th scope="col">28,6</th>
+                            <th scope="col">29,4</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">SL</th>
+                            <td>39</td>
+                            <td>40</td>
+                            <td>41</td>
+                            <td>42</td>
+                            <td>43</td>
+                            <td>44</td>
+                            <td>45</td>
+                            <td>46</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">UK</th>
+                            <td>5,5</td>
+                            <td>6,5</td>
+                            <td>7,5</td>
+                            <td>8,5</td>
+                            <td>9,5</td>
+                            <td>10,5</td>
+                            <td>11,5</td>
+                            <td>12,5</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">US</th>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>8</td>
+                            <td>9</td>
+                            <td>10</td>
+                            <td>11</td>
+                            <td>12</td>
+                            <td>13</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="Our_Team">
+        <div class="container-fluid d-flex flex-column justify-content-center" style="height:95vh;">
+            <div class="row ">
+                <center>
+                    <h3>Still in doubt? Come and our Team will help you</h3>
+                </center>
+            </div>
+
+            <div class="row mt-5">
+
+                <div class=col-md-3>
+                    <div class="card border-0">
+                        <img src="~/images/user1.JPG" class="profhover" />
+                        <div class="card-body text-start m-0">
+                            <h5 class="m-0">Amanda Fernandz</h5>
+                            <p class="">Amanda Fernandz</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class=col-md-3>
+                    <div class="card border-0">
+                        <img src="~/images/user2.JPG" class="profhover" />
+                        <div class="card-body text-start m-0">
+                            <h5 class="m-0">Amanda Fernandz</h5>
+                            <p class="">Amanda Fernandz</p>
+                        </div>
+                    </div>
+                </div>
+                <div class=col-md-3>
+                    <div class="card border-0">
+                        <img src="~/images/user3.JPG" class="profhover" />
+                        <div class="card-body text-start m-0">
+                            <h5 class="m-0">Amanda Fernandz</h5>
+                            <p class="">Amanda Fernandz</p>
+                        </div>
+                    </div>
+                </div>
+                <div class=col-md-3>
+                    <div class="card border-0">
+                        <img src="~/images/user4.JPG" class="profhover" />
+                        <div class="card-body text-start m-0">
+                            <h5 class="m-0">Amanda Fernandz</h5>
+                            <p class="">Amanda Fernandz</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <section id="Contact_Us">
+        <div class="container-fluid pb-4 px-5">
+            <div class="row">
+
+                <div class="col-md-6">
+                    <div class="row mb-4">
+                        <h6>GET IN TOUCH WITH US AND WE CAN HELP YOU</h6>
+                        <h2>Come to us or ask a question right now</h2>
+                    </div>
+                    <div class="row">
+                        <form>
+
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <input placeholder="Your Name*" class="form-control border-bottom border-0" />
+                                </div>
+                                <div class="col-md-6">
+                                    <input placeholder="Your Last Name" class="form-control border-bottom border-0" />
+                                </div>
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <input placeholder="Email" class="form-control border-bottom border-0" type="email" />
+                                </div>
+                                <div class="col-md-6">
+                                    <input placeholder="Phone" class="form-control border-bottom border-0" type="number" />
+                                </div>
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col">
+                                    <textarea placeholder="Message" class="form-control border-bottom border-0"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <button type="submit" class="btn clr text-light" style="border-radius:15px">Send Message</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <a href="https://www.google.lk/maps">
+                            <img src="~/images/map.jpg" alt="mapicon" style="width:100%;" />
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="~/js/CustomerJs.js" asp-append-version="true"></script>
+</div>

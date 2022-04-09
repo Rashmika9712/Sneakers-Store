@@ -1,0 +1,61 @@
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using SneakersStore.DataAccess.Repository.IRepository;
+using SneakersStore.Models;
+using SneakersStore.Utility;
+using System.ComponentModel.DataAnnotations;
+using System.Security.Claims;
+
+namespace Sneakers_store_web.Pages.Customer.Shopping
+{
+    [Authorize]
+    public class DetailsModel : PageModel
+    {
+        private readonly IUnitOfWork _unitOfWork;
+        public DetailsModel(IUnitOfWork unitOfWork)
+        {
+            _unitOfWork = unitOfWork;
+        }
+
+        [BindProperty]
+        public ShoppingCart ShoppingCart { get; set; }
+
+        public void OnGet(int id)
+        {
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+
+            ShoppingCart = new()
+            {
+                ApplicationUserId = claim.Value,
+                ShoeItem = _unitOfWork.ShoeItem.GetFirstOrDefault(u => u.Id == id, includeProperties: "Category,ShoeType"),
+                ShoeItemId = id
+            };
+        }
+
+        public IActionResult OnPost()
+        {
+            if (ModelState.IsValid)
+            {
+                ShoppingCart shoppingCartFromDb = _unitOfWork.ShoppingCart.GetFirstOrDefault(
+                    filter: u => u.ApplicationUserId == ShoppingCart.ApplicationUserId &&
+                     u.ShoeItemId == ShoppingCart.ShoeItemId);
+
+                if (shoppingCartFromDb == null)
+                {
+                    _unitOfWork.ShoppingCart.Add(ShoppingCart);
+                    _unitOfWork.Save();
+                    HttpContext.Session.SetInt32(SD.SessionCart,_unitOfWork.ShoppingCart.GetAll(
+                        u=>u.ApplicationUserId==ShoppingCart.ApplicationUserId).ToList().Count);
+                }
+                else
+                {
+                    _unitOfWork.ShoppingCart.IncrementCount(shoppingCartFromDb,ShoppingCart.Count);
+                }
+                return RedirectToPage("Index");
+            }
+            return Page();
+        }
+    }
+}

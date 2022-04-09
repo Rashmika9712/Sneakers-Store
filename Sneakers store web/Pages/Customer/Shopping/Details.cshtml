@@ -1,0 +1,90 @@
+﻿@page
+@model Sneakers_store_web.Pages.Customer.Shopping.DetailsModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container-fluid" style="height:93vh;">
+
+    <partial name="_Nav" />
+
+    <section name="main">
+
+        <div class="row mt-5">
+            <form method="post">
+                <input asp-for="ShoppingCart.ShoeItemId" hidden/>
+                <input asp-for="ShoppingCart.ApplicationUserId" hidden/>
+                <div class="container">
+                    <div class="card">
+                        <div class="card-header">
+
+                            <div class="row ms-0">
+                                <div class="col-12 col-md-6 pt-2">
+                                    <h1 class="clrf ">@Model.ShoppingCart.ShoeItem.Name</h1>
+                                </div>
+                                <div class="col-12 col-md-6 pt-2 text-end">
+                                    <h1 class="clrf ">LKR @Model.ShoppingCart.ShoeItem.Price</h1>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="card-body">
+                            <div class="container rounded p-2">
+                                <div class="row">
+                                    <div class="col-12 col-lg-8">
+                                         
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <span class="badge clr2 h3 p-3">
+                                                    @Model.ShoppingCart.ShoeItem.Category.Name
+                                                </span>
+                                                <span class="badge clr h3 p-3">
+                                                    @Model.ShoppingCart.ShoeItem.ShoeType.Name
+                                                </span>
+                                                <h3 class=""></h3>
+                                                <p class="">@Html.Raw(Model.ShoppingCart.ShoeItem.Description)</p>
+                                                <div class="form-floating my-2">
+                                                    <input asp-for="ShoppingCart.Count" class="form-control" are-required="true" />
+                                                    <label asp-for="ShoppingCart.Count"></label>
+                                                    <span asp-validation-for="ShoppingCart.Count" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-12 col-lg-4 p-1 text-center">
+                                        <img src="@Model.ShoppingCart.ShoeItem.Image" style="width:100%;" class="rounded" />
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-footer">
+                            <div class="row">
+                                <div class="col-12 col-md-6 pb-2">
+                                    <a class="btn btn-square form-control clr2 text-light p-2" asp-page="Index">
+                                        Back to List
+                                    </a>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <button type="submit" class="btn form-control text-light clr p-2">
+                                        Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </section>
+
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial"/>
+}
+f

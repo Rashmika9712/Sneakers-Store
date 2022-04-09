@@ -1,0 +1,117 @@
+﻿@page
+@model Sneakers_store_web.Pages.Customer.Cart.IndexModel
+@{
+    ViewData["Title"] = "Shopping Cart";
+}
+
+<div class="container-fluid" style="height:94vh;">
+
+    <partial name="_Nav" />
+
+    <section name="main">
+
+        <form method="post">
+            <br />
+            @if (Model.ShoppingCartList.Count() == 0)
+            {
+                <div class="row">
+                    <div class="col-6 text-end h3 clr2f">
+                        Please add items to shopping cart
+                    </div>
+                    <div class="col-6 text-start">
+                        <a href="./Shopping/Index" class="btn clr text-light">Continue Shopping</a>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="container my-5">
+                    <div class="card">
+
+                        <div class="card-header clr text-light">
+                            <div class="row">
+                                <div class="col-6 py-1">
+                                    Shopping Cart
+                                </div>
+                                <div class="col-6 text-end">
+                                    <a href="./Shopping/Index" class="btn btn-outline-light btn-sm">Continue Shopping</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            @foreach (var item in Model.ShoppingCartList)
+                            {
+                                <div class="row">
+                                    <div class="d-none d-lg-block col-lg-2 text-center py-2">
+                                        <img src="@item.ShoeItem.Image" class="rounded" style="width:100%;" />
+                                    </div>
+                                    <div class="col-12 text-sm-center text-md-start col-md-5 pt-md-4">
+                                        <h4><strong>@item.ShoeItem.Name</strong></h4>
+                                        <div class="badge clr text-light text-center">
+                                            @item.ShoeItem.Category.Name
+                                        </div>
+                                        <div class="badge clr2 text-light text-center">
+                                            @item.ShoeItem.ShoeType.Name
+                                        </div>
+                                    </div>
+                                    <div class="col-12 text-sm-center col-md-5 text-md-start row pt-3">
+                                        <div class="col-4 text-md-end pt-2">
+                                            <h6>
+                                                <strong>
+                                                    LKR @item.ShoeItem.Price
+                                                    <span class="clrf">x</span> @item.Count
+                                                </strong>
+                                            </h6>
+                                        </div>
+                                        <div class="col-6 col-sm-4 col-lg-6">
+                                            <button type="submit" class="btn clr text-light" asp-page-handler="plus"
+                                            asp-route-cartId="@item.Id">
+                                                <i class="bi bi-plus-square"></i>
+                                            </button>
+                                            <button type="submit" class="btn btn-danger" asp-page-handler="minus"
+                                            asp-route-cartId="@item.Id">
+                                                <i class="bi bi-dash-square"></i>
+                                            </button>
+                                        </div>
+                                        <div class="col-2 col-sm-4 col-lg-2 text-end">
+                                            <button type="submit" class="btn btn-outline-danger" asp-page-handler="remove"
+                                            asp-route-cartId="@item.Id">
+                                                <i class="bi bi-trash-fill"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                            }
+
+                            <div class="row">
+                                <div class="col-12 col-md-5">
+                                </div>
+
+                                <div class="col-12 col-md-6 offset-md-1 col-lg-4 offset-lg-3 pe-4">
+                                    <ul class="list-group">
+                                        <li class="list-group-item d-flex justify-content-between bg-light">
+                                            <span class="clr2f">Total (LKR)</span>
+                                            <strong class="clr2f">LKR @Model.CartTotal</strong>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-footer">
+                            <div class="col-12 col-lg-4 offset-lg-8 col-md-6 offset-md-6">
+                                <a class="btn clr2 text-light form-control" asp-area="" asp-page="Summary">
+                                    Summary
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </form>
+
+    </section>
+
+</div>

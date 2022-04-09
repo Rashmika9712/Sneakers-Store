@@ -1,0 +1,63 @@
+﻿@page
+@model Sneakers_store_web.Pages.Admin.ShoeTypes.IndexModel
+@{
+    ViewData["Title"] = "Shoe Type";
+}
+
+<div class="container-fluid">
+
+    <partial name="_Nav" />
+
+    <section name="main">
+        <div class="container">
+
+            <div class="row pt-4">
+
+                <div class="col-6">
+                    <h2 class="clrf"><strong>Shoe Type List</strong></h2>
+                </div>
+
+                <div class="col-6 text-end">
+                    <a asp-page="Create" class="btn clr text-light">
+                        <i class="bi bi-plus-square">&nbsp; Create New Shoe Type</i>
+                    </a>
+                </div>
+            </div>
+            <br /><br />
+
+            <table class="table table-bordered tablecontent">
+
+                <thead class="clr text-light">
+                    <tr>
+                        <th scope="col">Shoe Type Name</th>                        
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var obj in Model.ShoeType)
+                    {
+                        <tr>
+                            <td width="60%">@obj.Name</td>
+                            <td width="40%">
+                                <div class="btn-group w-75" role="group">
+                                    <a asp-page="Edit" asp-route-id="@obj.Id" class="btn text-light clr">
+                                        <i class="bi bi-pencil-square">&nbsp;Edit</i>
+                                    </a>&nbsp;
+                                    <a asp-page="Delete" asp-route-id="@obj.Id" class="btn btn-danger">
+                                        <i class="bi bi-trash">&nbsp;Delete</i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+
+        </div>
+    </section>
+
+
+</div>
+
+

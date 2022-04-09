@@ -1,0 +1,42 @@
+﻿@page
+@model Sneakers_store_web.Pages.Admin.ShoeTypes.DeleteModel
+@{
+    ViewData["Title"] = "Delete Shoe Type";
+}
+
+<div class="container-fluid" style="height:93vh;">
+
+    <partial name="_Nav" />
+
+    <div class="container">
+        <form method="post">
+            <input hidden asp-for="ShoeType.Id" />
+            <div class="border p-3 mt-5">
+
+                <div class="row pb-2">
+                    <h2 class="clrf pl-3"><strong>Delete Shoe Type</strong></h2>
+                    <hr />
+                </div>                
+                <div class="form-group mb-3">
+                    <label asp-for="ShoeType.Name"></label>
+                    <input asp-for="ShoeType.Name" class="form-control" disabled/>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-danger text-light form-control">
+                            Delete
+                        </button>
+                    </div>
+                    <div class="col-6">
+                        <a asp-page="Index" class="btn btn-secondary text-light form-control">
+                            Back to List
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+</div>

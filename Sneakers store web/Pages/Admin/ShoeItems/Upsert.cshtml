@@ -1,0 +1,123 @@
+﻿@page
+@model Sneakers_store_web.Pages.Admin.ShoeItems.UpsertModel
+@{
+    ViewData["Title"] = "Create Shoe Item";
+}
+
+<div class="container-fluid">
+
+    <partial name="_Nav" />
+
+    <div class="container mb-3">
+
+        <form method="post" enctype="multipart/form-data">
+            <input asp-for="ShoeItem.Id" hidden />
+            <div class="border p-3 mt-5">
+
+                <div class="row pb-2">
+                    <div class="col-md-9">
+
+                        <h2 class="clrf pl-3">
+                            <strong>
+                                @(Model.ShoeItem.Id!=0? "Update" : "Create") Shoe Item
+                            </strong>
+                        </h2>
+                        <hr />
+
+                        <div class="form-group mb-3">
+                            <label asp-for="ShoeItem.Name"></label>
+                            <input asp-for="ShoeItem.Name" class="form-control" />
+                            <span asp-validation-for="ShoeItem.Name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="ShoeItem.Description"></label>
+                            <textarea asp-for="ShoeItem.Description" class="form-control"></textarea>
+                            <span asp-validation-for="ShoeItem.Description" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="ShoeItem.Price"></label>
+                            <input asp-for="ShoeItem.Price" class="form-control" />
+                            <span asp-validation-for="ShoeItem.Price" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="ShoeItem.Image"></label>
+                            <input type="file" name="files" id="uploadBox" class="form-control" />
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="ShoeItem.CategoryId"></label>
+                            <select asp-for="ShoeItem.CategoryId" class="form-select" asp-items="Model.CategoryList">
+                                <option disabled selected>-Select Category-</option>
+                            </select>
+                            <span asp-validation-for="ShoeItem.CategoryId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="ShoeItem.ShoeTypeId"></label>
+                            <select asp-for="ShoeItem.ShoeTypeId" class="form-select" asp-items="Model.ShoeTypeList">
+                                <option disabled selected>-Select Shoe Type-</option>
+                            </select>
+                            <span asp-validation-for="ShoeItem.ShoeTypeId" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        @if (Model.ShoeItem.Id != 0)
+                        {
+                            <img src="@Model.ShoeItem.Image" width="100%" style="border-radius:5px;border:1px solid #bbb9b9" />
+                        }
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        @if (Model.ShoeItem.Id != 0)
+                        {
+                            <button type="submit" class="btn clr text-light form-control">
+                                Update
+                            </button>
+                        }
+                        else
+                        {
+                            <button type="submit" onclick="return ValidateInput()" class="btn clr text-light form-control">
+                                Create
+                            </button>
+                        }
+
+
+                    </div>
+                    <div class="col-6">
+                        <a asp-page="Index" class="btn btn-secondary form-control">
+                            Back to List
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+</div>
+
+@section Scripts{
+<script>
+        tinymce.init({
+        selector: 'textarea',
+        plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+        toolbar_mode: 'floating',
+        });
+
+        function ValidateInput(){
+        if(document.getElementById("uploadBox").value==""){
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Please upload an Image!',
+            });
+            return false;
+        }
+        return true;
+    }
+</script>
+    @{
+    <partial name="_ValidationScriptsPartial" />
+    }
+}

@@ -1,0 +1,87 @@
+﻿* {
+    font-family: Calibri, sans-serif;
+}
+#home-Z {
+    position: absolute;    
+    top: 26vh;
+    z-index: 2;
+}
+
+@media only screen and (max-width: 768px) {
+    .none {
+        display: none;
+    }
+    .hh1{
+        font-size: 6vh;
+    }
+    
+}
+
+@media only screen and (min-width: 768px) {    
+
+    .hh1 {
+        font-size: 9vh;
+    }
+    .li1 {
+        margin-left:auto;
+    }
+    .navli:hover, nav>div>a:hover {        
+        transform: scale(1.2);
+        transition: transform 0.8s;
+    }
+    .navli{
+        font-size: 115%;
+    }
+}
+.navul {
+    background-color: transparent;
+}
+
+.navul.active {
+    background-color: #365C9A;
+}
+
+.clr {
+    background-color: #365C9A;    
+}
+
+.clrf {
+    color: #365C9A;
+}
+
+.clr2 {
+    background-color: #4FA15F;
+}
+
+.clr2f {
+    color: #4FA15F;
+}
+
+.tablecontent {
+    text-align: center;
+    font-size:108%;
+}
+.tablecontent tr:hover {
+    color:white;
+    
+}
+
+.tablecontent a:hover {
+    transform: scale(1.05);
+    transition: transform 1s;
+    border:1px solid white;
+}
+
+.imagehover:hover {
+    transform: scale(1.2);
+    transition: transform 1s;
+    z-index: 1;
+}
+.profhover:hover {
+    transform: scale(1.05);
+    transition: transform 1s;
+    z-index: 1;
+}
+tr:hover {
+    background-color:#365C9A;
+}

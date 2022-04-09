@@ -1,0 +1,30 @@
+﻿@page
+@model Sneakers_store_web.Pages.Customer.Cart.OrderConfirmationModel
+@{
+    ViewData["Title"] = "Order Confirmation";
+}
+
+<div class="container-fluid">
+
+    <partial name="_Nav" />
+
+    <section name="main">
+
+        <div class="container my-3">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="text-center clrf">Order Placed Successfully!</h1>
+                    <h6 class="clr2f">Your Order Number is: @Model.OrderId </h6>
+                    <br />
+                    <img src="~/images/OrderConfirm.jpg" width="65%" />
+                </div>
+                <div class="col-12 text-center">
+                    <br />
+                    <h6 class="clr2f">Your order has been placed successfully!</h6>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</div>

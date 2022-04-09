@@ -1,0 +1,48 @@
+﻿@page
+@model Sneakers_store_web.Pages.Admin.ShoeTypes.CreateModel
+@{
+    ViewData["Title"] = "Create Shoe Type";
+}
+
+<div class="container-fluid" style="height:93vh;">
+
+    <partial name="_Nav" />
+
+    <div class="container">
+        <form method="post">
+            <div class="border p-3 mt-5">
+
+                <div class="row pb-2">
+                    <h2 class="clrf pl-3"><strong>Create Shoe Type</strong></h2>
+                    <hr />
+                </div>
+                <div asp-validation-summary="All"></div>
+                <div class="form-group mb-3">
+                    <label asp-for="ShoeType.Name"></label>
+                    <input asp-for="ShoeType.Name" class="form-control" />
+                    <span asp-validation-for="ShoeType.Name" class="text-danger"></span>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <button type="submit" class="btn clr text-light form-control">
+                            Create
+                        </button>
+                    </div>
+                    <div class="col-6">
+                        <a asp-page="Index" class="btn btn-secondary form-control">
+                            Back to List
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+</div>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

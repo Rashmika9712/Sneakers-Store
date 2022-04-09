@@ -1,0 +1,49 @@
+﻿@page
+@model Sneakers_store_web.Pages.Admin.ShoeItems.IndexModel
+@{
+    ViewData["Title"] = "Shoe Item";
+}
+
+<div class="container-fluid mb-3">
+
+    <partial name="_Nav" />
+
+    <section name="main">
+        <div class="container">
+
+            <div class="row pt-4">
+
+                <div class="col-6">
+                    <h2 class="clrf"><strong>Shoe Item List</strong></h2>
+                </div>
+
+                <div class="col-6 text-end">
+                    <a asp-page="Upsert" class="btn clr text-light">
+                        <i class="bi bi-plus-square">&nbsp; Create New Shoe Item</i>
+                    </a>
+                </div>
+            </div>
+            <br /><br />
+
+            <table id="DT_load" class="table table-hover tablecontent">
+
+                <thead class="clr text-light">
+                    <tr>
+                        <th scope="col">Shoe Item Name</th>                        
+                        <th scope="col">Price</th>                        
+                        <th scope="col">Category</th>                        
+                        <th scope="col">Shoe Type</th>                        
+                        <th></th>
+                    </tr>
+                </thead>       
+
+            </table>
+
+        </div>
+    </section>
+
+</div>
+
+@section Scripts{
+    <script src="~/js/shoeItem.js"></script>
+}
